@@ -28,9 +28,8 @@ export default function SearchBox({ updateInfo }) {
       console.log(result);
       return result;
     } catch (error) {
-     throw error;
+      throw error;
     }
-    
   };
 
   let handleChange = (e) => {
@@ -43,7 +42,7 @@ export default function SearchBox({ updateInfo }) {
       setCity("");
       let newInfo = await getWeatherInfo();
       updateInfo(newInfo);
-      
+      setError(false);
     } catch (error) {
       setError(true);
     }
@@ -63,7 +62,7 @@ export default function SearchBox({ updateInfo }) {
         <Button variant="contained" type="submit">
           Search
         </Button>
-        {error && <p style={{color :"red"}}>NO such place exist</p>}
+        {error && <p style={{ color: "red" }}>NO such place exist</p>}
       </form>
     </div>
   );
